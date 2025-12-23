@@ -1,0 +1,4 @@
+rootProject.name = 'spring-security-playground'
+
+include 'basic-auth'
+include 'jwt-auth'
