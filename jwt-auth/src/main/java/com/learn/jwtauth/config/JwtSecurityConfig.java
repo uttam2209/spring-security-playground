@@ -19,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class JwtSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(reqs -> reqs.requestMatchers("/v1/jwt-auth/authenticate", "/h2-console").permitAll()
+        http.authorizeHttpRequests(reqs -> reqs.requestMatchers("/v1/jwt-auth/authenticate", "/h2-console/**").permitAll()
                         .anyRequest().authenticated()
         )
                 .csrf(AbstractHttpConfigurer::disable)
