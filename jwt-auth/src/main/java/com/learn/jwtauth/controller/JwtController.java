@@ -5,10 +5,7 @@ import com.learn.jwtauth.util.JWTUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/v1/jwt-auth")
@@ -26,5 +23,10 @@ public class JwtController {
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.username(), request.password()));
         String jwtToken = jwtUtil.generateJwtToken(request.username());
         return ResponseEntity.ok(jwtToken);
+    }
+
+    @GetMapping("/health")
+    public ResponseEntity<String> health() {
+        return ResponseEntity.ok("HEALTHY!");
     }
 }
