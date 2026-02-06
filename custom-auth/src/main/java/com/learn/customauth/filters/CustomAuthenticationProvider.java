@@ -18,6 +18,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         CustomAuthentication ca = (CustomAuthentication) authentication;
 
         if (ca.getKey() != null && ca.getKey().equals(secret)) {
+            System.out.println("Validated the header key");
             return new CustomAuthentication(null, true);
         }
 
